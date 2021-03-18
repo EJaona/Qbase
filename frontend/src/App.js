@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Form from './components/Form';
+import Customer from './components/customer'
+import './App.css' 
 
 const App = () => {
 
@@ -14,7 +16,7 @@ const App = () => {
       firstName: 'Sasuke',
       lastName: 'Uchiha',
       phone: '6513456789',
-      email:'S.Uchiha@UchihaClan.gov'
+      email:'Uchiha.S@UchihaClan.gov'
     },
     {
       firstName: 'Clark',
@@ -24,34 +26,33 @@ const App = () => {
     }
   ])
 
+  
   const removeCustomer = (removedCustomer) => {
 
     setCustomerList(
       customerList.filter(customer => customer !== removedCustomer)
     )
   }
+
  
 
   return (
     <div className="App">
-      {
-        customerList.map( customer => (
-          <div
-            style={{
-              border: '2px solid black'
-            }}
-          >
-            <p>Name: { customer.firstName } { customer.lastName } </p>
-            <p>Email: { customer.email } </p>
-            <p>Phone: { customer.phone } </p>
-            <input type='submit' value='Delete' onClick={() => removeCustomer(customer)} />
-          </div>
-        ))
-      }
-      <Form
-        customerList={customerList}
-        setCustomerList={setCustomerList}
-      />
+      
+        <Form
+          customerList={customerList}
+          setCustomerList={setCustomerList}
+        />
+
+      <div className="customer_list">
+        
+        {
+          customerList.map( customer => (
+            <Customer customer={customer} removeCustomer={removeCustomer}/>
+          ))
+        }
+      </div>
+
     </div>
   );
 }

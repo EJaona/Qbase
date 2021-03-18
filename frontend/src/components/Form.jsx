@@ -36,8 +36,9 @@ const Form = ({ customerList, setCustomerList }) => {
 
 
     return(
-        <form onSubmit={(e) => addCustomer(e)}>
+        <form className='form_container' onSubmit={(e) => addCustomer(e)}>
             <input 
+                className="input_box first_name_input"
                 type="text" 
                 name="firstName"
                 placeholder="First Name"
@@ -45,6 +46,7 @@ const Form = ({ customerList, setCustomerList }) => {
                 onChange={e => setFirstName(e.target.value)}
             />
             <input 
+                className="input_box last_name_input"
                 type="text" 
                 name="lastName"
                 placeholder="Last Name"
@@ -52,6 +54,7 @@ const Form = ({ customerList, setCustomerList }) => {
                 onChange={e => setLastName(e.target.value)}
             />
             <input 
+                className="input_box email_input"
                 type="text" 
                 name="email"
                 placeholder="email"
@@ -59,6 +62,7 @@ const Form = ({ customerList, setCustomerList }) => {
                 onChange={e => setEmail(e.target.value)}
             />
             <input 
+                className="input_box phone_input"
                 type="text" 
                 name="phone"
                 placeholder="phone"
@@ -66,6 +70,7 @@ const Form = ({ customerList, setCustomerList }) => {
                 onChange={e => setPhone(e.target.value)}
             />
             <input 
+                className="input_box submit_input"
                 type="submit" 
                 value="Add Customer" 
             />
