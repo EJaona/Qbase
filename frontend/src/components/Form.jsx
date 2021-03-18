@@ -11,12 +11,29 @@ const Form = ({ customerList, setCustomerList }) => {
     const addCustomer = (e) => {
 
         e.preventDefault()
-        setCustomerList([...customerList, {firstName, lastName, phone, email}])
-        setFirstName('')
-        setLastName('')
-        setEmail('')
-        setPhone('')
+
+        if(firstName, lastName, email, phone){
+
+            
+            if(!customerList.find(customer => customer.email === email)){
+
+                setCustomerList([...customerList, {firstName, lastName, phone, email}])
+                setFirstName('')
+                setLastName('')
+                setEmail('')
+                setPhone('')
+            }else{
+                alert('found a customer with that email address')
+            }
+            
+
+        }else{
+
+            alert('missing one of the fields')
+        }
+
     }
+
 
     return(
         <form onSubmit={(e) => addCustomer(e)}>
