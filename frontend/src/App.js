@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react'
 
-function App() {
+const App = () => {
+
+  const [customerList, setCustomerList] = useState([])
+
+  useEffect(() => {
+    setCustomerList([
+      {
+        firstName: 'Bob',
+        lastName: 'Belcher',
+        phone: '6511234567',
+        email:'BobbyB@BobsBurgers.com'
+      },
+      {
+        firstName: 'Sasuke',
+        lastName: 'Uchiha',
+        phone: '6513456789',
+        email:'S.Uchiha@UchihaClan.gov'
+      },
+      {
+        firstName: 'Clark',
+        lastName: 'Kent',
+        phone: '6515678900',
+        email:'Clark.Kent@dailyPlanet.com'
+      }
+    ])
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        customerList.map( customer => (
+          <div
+          style={{
+            border: '2px solid black'
+          }}
+          >
+            <p>Name: { customer.firstName } { customer.lastName } </p>
+            <p>Email: { customer.email } </p>
+            <p>Phone: { customer.phone } </p>
+          </div>
+        ))
+      }
     </div>
   );
 }
