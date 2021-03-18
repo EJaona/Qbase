@@ -24,6 +24,12 @@ const App = () => {
     }
   ])
 
+  const removeCustomer = (removedCustomer) => {
+
+    setCustomerList(
+      customerList.filter(customer => customer !== removedCustomer)
+    )
+  }
  
 
   return (
@@ -38,6 +44,7 @@ const App = () => {
             <p>Name: { customer.firstName } { customer.lastName } </p>
             <p>Email: { customer.email } </p>
             <p>Phone: { customer.phone } </p>
+            <input type='submit' value='Delete' onClick={() => removeCustomer(customer)} />
           </div>
         ))
       }
