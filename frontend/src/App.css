@@ -1,38 +1,151 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid red;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
+  transition: all .3s ease-in-out;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+  border: 1px solid transparent;
+  background: white;
+  box-shadow: .5px .5px 5px;
+  height: 50%;
+  border-radius: 1%;
+  flex: .3;
+  padding: 2%;
+}
+
+.input_container {
+  height: 10%;
+  padding: 1%;
+  position: relative;
+}
+
+.bottom_border {
+  height: 5%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-color: white;
+}
+
+.bottom_border_filler {
+  transition: all .3s ease-in-out;
+  height: 100%;
+  width: 0%;
+  background-color: rgb(190, 190, 190);
+}
+
+.filled {
+  width: 100%;
+}
+
+.not_empty {
+  background-color: rgb(18, 41, 240);;
+}
+
+.invalid_email {
+  background-color: red;
+}
+
+.input_box {
+  /* border: 1px solid blue; */
+  height: 100%;
+  width: 85%;
+  outline: none;
+  border: none;
+  /* box-shadow: 0 1px 0; */
+}
+
+.submit_input {
+  height: 10%;
+  font-size: 25px;
+  align-self: center;
+  background-color: rgb(18, 41, 240);
+  color: white;
+  box-shadow: 0 0 5px;
+}
+
+.disabled {
+  opacity: .5;
+}
+
+
+.input_box:-webkit-autofill,
+.input_box:-webkit-autofill:hover, 
+.input_box:-webkit-autofill:focus, 
+.input_box:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.customer_list {
+  box-sizing: border-box;
+  flex: .4;
+  height: 95%;
+  padding: 2%;
+  overflow: scroll;
+}
+
+.customer_list::-webkit-scrollbar {
+  display: none;
+}
+
+.customer_details_text {
+  font-size: 1.5rem;
+}
+
+.customer_details {
+  width: 85%;
+}
+
+.customer_info, .delete {
+  transition: all .5s ease-in-out;
+  margin-bottom: 5%;
+  padding: 2%;
+  border: 'none';
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 4px;
+  border-radius: 15px;
+
+}
+
+.customer_info:hover {
+  background-color: blue;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.delete:hover {
+  background-color: red;
+  color: white;
+  transition: all .3s ease;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.delete_btn {
+  transition: all .5s ease-in-out;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 30px;
+  color: red;
+  height: 25%;
+}
+
+.delete_btn:hover {
+  transition: all .5s ease-in-out;
+  background-color: transparent;
+  color: white;
+  border: 2px solid black;
+  font-size: 30px;
 }
