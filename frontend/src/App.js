@@ -38,7 +38,6 @@ const App = () => {
 
   return (
     <div className="App">
-      
         <Form
           customerList={customerList}
           setCustomerList={setCustomerList}

@@ -1,47 +1,97 @@
 .App {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
 }
 
-.form_container {
-  width: 40%;
-  /* height: 50%; */
-  overflow: scroll;
+
+form {
+  transition: all .3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid transparent;
+  background: white;
+  box-shadow: .5px .5px 5px;
+  height: 50%;
+  border-radius: 1%;
+  flex: .3;
+  padding: 2%;
+}
+
+.input_container {
+  height: 10%;
+  padding: 1%;
+  position: relative;
+}
+
+.bottom_border {
+  height: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid yellow;
-  box-sizing: border-box;
+  background-color: white;
 }
 
-.form_container::-webkit-scrollbar {
-  visibility: hidden;
+.bottom_border_filler {
+  transition: all .3s ease-in-out;
+  height: 100%;
+  width: 0%;
+  background-color: rgb(190, 190, 190);
 }
+
+.filled {
+  width: 100%;
+}
+
 
 .input_box {
-  border: 1px solid blue;
-    /* position: absolute; */
+  /* border: 1px solid blue; */
+  height: 100%;
+  width: 85%;
+  outline: none;
+  border: none;
+  /* box-shadow: 0 1px 0; */
 }
 
+.submit_input {
+  height: 10%;
+}
+
+
+
+.input_box:-webkit-autofill,
+.input_box:-webkit-autofill:hover, 
+.input_box:-webkit-autofill:focus, 
+.input_box:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset;
+}
 
 .customer_list {
   box-sizing: border-box;
-  width: 40%;
+  flex: .4;
   height: 95%;
   padding: 2%;
   overflow: scroll;
-  border: 1px solid black;
 }
 
+.customer_list::-webkit-scrollbar {
+  display: none;
+}
 
-.customer_info {
-  transition: all .3s ease-in-out;
-  margin-bottom: 2%;
+.customer_details_text {
+  font-size: 1.5rem;
+}
+
+.customer_info, .delete {
+  transition: all .5s ease-in-out;
+  margin-bottom: 5%;
+  padding: 2%;
 }
 
 .customer_info:hover {

@@ -8,14 +8,18 @@ const Customer = ({ customer, removeCustomer }) => {
     return(
         <div
             style={{
-              border: '2px solid black',
+              border: 'none',
+              display: 'flex',
+              justifyContent: 'space-between',
+              boxShadow: '0 0 4px',
+              borderRadius: '15px'
             }}
             className={className}
           >
               <div className="customer_details">
-                <p>Name: { customer.firstName } { customer.lastName } </p>
-                <p>Email: { customer.email } </p>
-                <p>Phone: { customer.phone } </p>
+                <p className="customer_details_text">Name: { customer.firstName } { customer.lastName } </p>
+                <p className="customer_details_text">Email: { customer.email } </p>
+                <p className="customer_details_text">Phone: { customer.phone } </p>
               </div>
 
             <input 
@@ -24,6 +28,12 @@ const Customer = ({ customer, removeCustomer }) => {
               onClick={() => removeCustomer(customer)} 
               onMouseOver={() => setClassName('delete')}
               onMouseOut={() => setClassName('customer_info')}
+              style={{
+                  background: 'white',
+                  color: 'red',
+                  borderRadius: '5px',
+                  borderColor: 'red'
+              }}
             />
           </div>
     )
