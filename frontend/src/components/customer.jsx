@@ -7,13 +7,6 @@ const Customer = ({ customer, removeCustomer }) => {
     
     return(
         <div
-            style={{
-              border: 'none',
-              display: 'flex',
-              justifyContent: 'space-between',
-              boxShadow: '0 0 4px',
-              borderRadius: '15px'
-            }}
             className={className}
           >
               <div className="customer_details">
@@ -23,17 +16,13 @@ const Customer = ({ customer, removeCustomer }) => {
               </div>
 
             <input 
+              className="delete_btn"
               type='submit' 
-              value='Delete' 
+              value='X' 
               onClick={() => removeCustomer(customer)} 
               onMouseOver={() => setClassName('delete')}
               onMouseOut={() => setClassName('customer_info')}
-              style={{
-                  background: 'white',
-                  color: 'red',
-                  borderRadius: '5px',
-                  borderColor: 'red'
-              }}
+             
             />
           </div>
     )

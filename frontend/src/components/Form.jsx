@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import CustomInputField from '../utils/CustomInputField'
 
@@ -10,15 +10,23 @@ const Form = ({ customerList, setCustomerList }) => {
     const [phone, setPhone] = useState('')
 
     const [isFormComplete, setIsFormComplete] = useState(false)
-    const [focusedInput, setfocusedInput] = useState()
+
+    useEffect(() => {
+
+        if(firstName && lastName && email && phone){
+            setIsFormComplete(true)
+        }else{
+            setIsFormComplete(false)
+        }
+
+    }, [firstName, lastName, email, phone])
 
     const addCustomer = (e) => {
 
         e.preventDefault()
 
-        if(firstName && lastName && email && phone){
+        if(isFormComplete){
 
-            setIsFormComplete(true)
             
             if(!customerList.find(customer => customer.email === email)){
 
@@ -28,22 +36,15 @@ const Form = ({ customerList, setCustomerList }) => {
                 setEmail('')
                 setPhone('')
             }else{
-                alert('found a customer with that email address')
+                alert('found a customer with that email address. Please adjust and submit again')
             }
-            
 
-        }else{
-
-            alert('missing one of the fields')
         }
-
     }
-
-    console.log(focusedInput)
 
 
     return(
-        <form autoComplete="off" className='form_container' onSubmit={(e) => addCustomer(e)}>
+        <form className='form_container' onSubmit={(e) => addCustomer(e)}>
 
             <CustomInputField
                 className="input_box first_name_input"
@@ -71,15 +72,18 @@ const Form = ({ customerList, setCustomerList }) => {
             />
             <CustomInputField
                 className="input_box phone_input"
-                type="text" 
+                type="tel" 
                 name="phone"
                 placeholder="phone"
                 value={phone}
                 onChange={setPhone}
+                max="10"
+                min="10"
             />
 
             <input 
-                className="input_box submit_input"
+                disabled={!isFormComplete}
+                className={`input_box submit_input ${!isFormComplete&&'disabled'}`}
                 type="submit" 
                 value="Add Customer" 
             />

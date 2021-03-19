@@ -38,6 +38,7 @@ const App = () => {
 
   return (
     <div className="App">
+
         <Form
           customerList={customerList}
           setCustomerList={setCustomerList}
@@ -47,7 +48,7 @@ const App = () => {
         
         {
           customerList.map( customer => (
-            <Customer customer={customer} removeCustomer={removeCustomer}/>
+            <Customer key={customer.email} customer={customer} removeCustomer={removeCustomer}/>
           ))
         }
       </div>

@@ -48,6 +48,13 @@ form {
   width: 100%;
 }
 
+.not_empty {
+  background-color: rgb(18, 41, 240);;
+}
+
+.invalid_email {
+  background-color: red;
+}
 
 .input_box {
   /* border: 1px solid blue; */
@@ -60,8 +67,16 @@ form {
 
 .submit_input {
   height: 10%;
+  font-size: 25px;
+  align-self: center;
+  background-color: rgb(18, 41, 240);
+  color: white;
+  box-shadow: 0 0 5px;
 }
 
+.disabled {
+  opacity: .5;
+}
 
 
 .input_box:-webkit-autofill,
@@ -88,10 +103,20 @@ form {
   font-size: 1.5rem;
 }
 
+.customer_details {
+  width: 85%;
+}
+
 .customer_info, .delete {
   transition: all .5s ease-in-out;
   margin-bottom: 5%;
   padding: 2%;
+  border: 'none';
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 4px;
+  border-radius: 15px;
+
 }
 
 .customer_info:hover {
@@ -107,4 +132,20 @@ form {
 }
 
 
+.delete_btn {
+  transition: all .5s ease-in-out;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 30px;
+  color: red;
+  height: 25%;
+}
 
+.delete_btn:hover {
+  transition: all .5s ease-in-out;
+  background-color: transparent;
+  color: white;
+  border: 2px solid black;
+  font-size: 30px;
+}
